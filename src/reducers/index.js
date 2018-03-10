@@ -1,2 +1,5 @@
+import board from './board'
 
-export default {} // empty for now!
+export default {
+  board,
+}
