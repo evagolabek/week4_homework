@@ -1,4 +1,10 @@
+.App {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
 
 .App h1 {
+  flex: 1;
   text-align: center;
 }

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Square from '../components/Square'
-// import './Board.css'
+import './Board.css'
 
 
 export class Board extends PureComponent {
