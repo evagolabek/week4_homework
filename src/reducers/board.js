@@ -5,6 +5,16 @@
 //   - an action Object:
 //     - type : the action type
 //     - payload : [optional] payload
-export default (state = [], { type, payload } = {}) => {
+
+const emptyBoard = [
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0]
+]
+
+export default (state = emptyBoard, { type, payload } = {}) => {
   return state
 }
