@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Square from '../components/Square'
 import './Board.css'
 
@@ -8,10 +8,11 @@ import './Board.css'
 export class Board extends PureComponent {
   static propTypes = {
     board: PropTypes.arrayOf(
-      PropTypes.arrayOf(PropTypes.number)
-    ).isRequired
+      PropTypes.arrayOf(PropTypes.number) //array on an array of numbers = array of rows
+    ).isRequired //when board is created it requires array of array of numbers called board
   }
 
+//creates div called row with key = index each time it is called, then inside the div it calls renderSquare for each element, below
   renderRow = (row, index) => {
     return (
       <div key={index} className="row">
@@ -20,12 +21,20 @@ export class Board extends PureComponent {
     )
   }
 
-  renderSquare = rowIndex => (value, index) => {
+// creates square component each time its called, plus list of parameters square components needs
+  renderSquare = rowIndex => (value, index) => {  //square is a component that we use several times
     return (
-      <Square key={index} value={value} />
+      <Square
+      key={index}
+      value={value}
+      row={index}
+      col={rowIndex}
+      />
     )
   }
 
+
+//makes a div of class Board, inisde of it for each row we call renderRow function above
   render() {
     return (
       <div className="Board">
