@@ -7,14 +7,6 @@
   border: 4px solid #eee;
 }
 
-/* .Square.fill-1 {
-  background-color: #D0021B;
-}
-
-.Square.fill-2 {
-  background-color: #4A90E2;
-} */
-
 .Square.locked:hover::after {
   opacity: .3;
   content: '\f023';
@@ -41,4 +33,12 @@
 
 .Square.fill-2.locked {
   background-color: #2F619B;
+}
+
+.Square.error {
+  border-color: yellow;
+}
+
+.Square.dupe {
+  border-color: orange;
 }

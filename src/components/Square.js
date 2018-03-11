@@ -11,6 +11,8 @@ class Square extends PureComponent {
     row: PropTypes.number.isRequired,
     col: PropTypes.number.isRequired,
     locked: PropTypes.bool,
+    dupe: PropTypes.bool,
+    error: PropTypes.bool
   }
 
   handleClick = () => {
@@ -23,12 +25,13 @@ class Square extends PureComponent {
   }
 
   makeClassName() {
-    const value = this.props.value
-    const locked = this.props.locked
+    const {value, locked, dupe, error} = this.props
 
     let classNameArray = ['Square']
     classNameArray.push(`fill-${value || 0}`)
     if (locked) classNameArray.push('locked')
+    if (dupe) classNameArray.push('dupe')
+    if (error) classNameArray.push('error')
 
     return classNameArray.join(' ')
   }
@@ -44,7 +47,7 @@ class Square extends PureComponent {
 }
 
 const mapStateToProps = ({ locked }, { row, col }) => ({
-  locked: locked.filter(l => l[0] === col && l[1] === row).length > 0
+  locked: locked.filter(l => l[0] === row && l[1] === col).length > 0
 })
 
 export default connect(mapStateToProps, { move })(Square)
